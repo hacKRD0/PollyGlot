@@ -75,27 +75,34 @@ const Home: React.FC = (): JSX.Element => {
     setError(null);
 
     try {
-      const hf = new HfInference(import.meta.env.VITE_HF_TOKEN as string);
+      const url = import.meta.env.VITE_API_URL
 
-      const result = await hf.translation({
-        model: "facebook/mbart-large-50-many-to-many-mmt",
-        inputs: userMessage.text,
-        parameters: {
-          src_lang: "en_XX",
-          tgt_lang: language,
-          max_new_tokens: 150,
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-type": "Application/json",
         },
-      });
+        body: JSON.stringify({
+          input: text,
+          language,
+        })
+      })
+      
+      const translated_text = await response.json()
+      if (translated_text) {
+        // Add translated message to messages array
+        const translatedMessage: Message = {
+          id: uuidv4(),
+          text: translated_text,
+          language: language,
+          sender: "system",
+          timestamp: new Date().toLocaleTimeString(),
+        };
+        setMessages((prev) => [...prev, translatedMessage]);
+      } else {
+        throw new Error("API Limit Hit.")
+      }
 
-      // Add translated message to messages array
-      const translatedMessage: Message = {
-        id: uuidv4(),
-        text: result.translation_text,
-        language: language,
-        sender: "system",
-        timestamp: new Date().toLocaleTimeString(),
-      };
-      setMessages((prev) => [...prev, translatedMessage]);
     } catch (err) {
       console.error("Translation Error:", err);
       setError("Failed to translate. Please try again.");
