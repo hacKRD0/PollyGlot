@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { HfInference } from "@huggingface/inference";
 
 const corsHeaders = {

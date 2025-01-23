@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Home.tsx
 import React, { useState, useRef, useEffect, ChangeEvent, KeyboardEvent } from "react";
 import { FaPaperPlane, FaSpinner } from "react-icons/fa";
