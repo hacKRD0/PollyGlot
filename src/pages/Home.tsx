@@ -22,7 +22,7 @@ interface LanguageOption {
 
 const Home: React.FC = (): JSX.Element => {
   // State Variables with Types
-  const [language, setLanguage] = useState<string>("es_XX");
+  const [language, setLanguage] = useState<string>("es");
   const [text, setText] = useState<string>("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -84,7 +84,7 @@ const Home: React.FC = (): JSX.Element => {
         })
       })
       
-      // console.log('Response:',response);
+      console.log('Response:',response);
       const {translation_text} = await response.json()
       // console.log(translation_text)
       if (translation_text) {
@@ -118,8 +118,8 @@ const Home: React.FC = (): JSX.Element => {
 
   // Define available languages
   const languages: LanguageOption[] = [
-    { code: "es_XX", name: "Spanish", flag: "/es-flag.png" },
-    { code: "fr_XX", name: "French", flag: "/fr-flag.png" },
+    { code: "es", name: "Spanish", flag: "/es-flag.png" },
+    { code: "fr", name: "French", flag: "/fr-flag.png" },
     { code: "ja_XX", name: "Japanese", flag: "/jpn-flag.png" },
     // Add more languages as needed
   ];
