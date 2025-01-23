@@ -84,7 +84,7 @@ const Home: React.FC = (): JSX.Element => {
         })
       })
       
-      console.log('Response:',response);
+      // console.log('Response:',response);
       const {translation_text} = await response.json()
       // console.log(translation_text)
       if (translation_text) {
@@ -102,8 +102,8 @@ const Home: React.FC = (): JSX.Element => {
       }
 
     } catch (err) {
-      console.error("Translation Error:", err);
-      setError("Failed to translate. Please try again.");
+      // console.error("Translation Error:", err);
+      setError("You have reached the maximum requests. Please try again in one hour.");
     } finally {
       setIsLoading(false);
     }
