@@ -1,7 +1,5 @@
 // Home.tsx
-
 import React, { useState, useRef, useEffect, ChangeEvent, KeyboardEvent } from "react";
-import { HfInference } from "@huggingface/inference";
 import { FaPaperPlane, FaSpinner } from "react-icons/fa";
 import { v4 as uuidv4 } from "uuid";
 
