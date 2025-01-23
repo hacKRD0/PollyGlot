@@ -4,9 +4,6 @@ import React, { useState, useRef, useEffect, ChangeEvent, KeyboardEvent } from "
 import { FaPaperPlane, FaSpinner } from "react-icons/fa";
 import { v4 as uuidv4 } from "uuid";
 
-// Import the interfaces if defined in a separate file
-// import { Message, LanguageOption } from "../types";
-
 // Define the Message interface
 interface Message {
   id: string;
@@ -87,12 +84,14 @@ const Home: React.FC = (): JSX.Element => {
         })
       })
       
-      const translated_text = await response.json()
-      if (translated_text) {
+      // console.log('Response:',response);
+      const {translation_text} = await response.json()
+      // console.log(translation_text)
+      if (translation_text) {
         // Add translated message to messages array
         const translatedMessage: Message = {
           id: uuidv4(),
-          text: translated_text,
+          text: translation_text,
           language: language,
           sender: "system",
           timestamp: new Date().toLocaleTimeString(),

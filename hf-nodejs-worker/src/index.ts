@@ -34,7 +34,7 @@ export default {
 			// console.log(JSON.stringify(result));
 			const translation_text = result.translation_text;
 			// console.log(translation_text);
-			return new Response(JSON.stringify(translation_text), { headers: corsHeaders });
+			return new Response(JSON.stringify({ translated_text: translation_text }), { headers: corsHeaders });
 		} catch (error) {
 			return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: corsHeaders });
 		}
