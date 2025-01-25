@@ -1,10 +1,10 @@
 # Pollyglot
 
-Pollyglot is a real-time translation app that uses Hugging Face inference endpoints to translate text from English to Spanish, French, and Japanese. The app provides a simple and intuitive chat interface, designed to deliver seamless and efficient translations using advanced cloud technologies like Cloudflare Workers and Hugging Face.
+Pollyglot is a real-time translation app that translates text from English to Spanish, French, and Japanese. 
 
 ## Features
 
-- Real-time translation between English, Spanish, French, and Japanese.
+- Real-time translation from English to Spanish, French, and Japanese.
 - Simple and responsive chat interface built with Vite, React, and Tailwind CSS.
 - Optimized API calls to Hugging Face models for each target language.
 - Cloudflare Worker for managing translation requests and ensuring fast performance.
