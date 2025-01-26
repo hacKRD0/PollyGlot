@@ -57,6 +57,7 @@ Link: [Try it yourself!](https://pollyglot-esf.pages.dev/)
     ```bash
     npm create cloudflare@latest --my-first-worker
     cd my-first-worker
+    npx wrangler secret put HF_TOKEN // This command will open a prompt where you can enter your huggingface api token
     npx wrangler deploy
     ```
 4. Add your huggingface api token as an environment variable with key 'HF_TOKEN'
